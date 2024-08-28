@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import ClientLayout from "./ClientLayout"; // Import Client Layout
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,7 +17,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <link
+          href="https://cdn.lineicons.com/4.0/lineicons.css"
+          rel="stylesheet"
+        />
+        <link rel="icon" href="/vercel.svg" sizes="any" />
+      </head>
+      <body className={inter.className}>
+        <ClientLayout>{children}</ClientLayout>
+      </body>
     </html>
   );
 }

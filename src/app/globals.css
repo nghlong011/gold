@@ -18,16 +18,76 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+.social-icon {
+  width: fit-content;
+  height: 100%;
+  align-items: center;
+  float: right;
+}
+.link {
+  text-decoration: none;
+  color: black !important;
+  font-weight: bold !important;
+  margin-top: 10px;
+}
+/* styles/globals.css */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden; /* Ẩn phần chữ ra ngoài vùng chứa */
+  white-space: nowrap;
+}
+
+.animate-marquee {
+  display: inline-block;
+  padding-left: 100%; /* Đẩy chữ ra ngoài khỏi vùng chứa ban đầu */
+  animation: marquee 60s linear infinite;
+}
+.text-marquee {
+  width: calc(100% - 40px);
+  display: flex;
+  align-items: center;
+}
+h5 {
+  font-size: 1.1em;
+  margin: 0 0 0.5em;
+  line-height: 1.6;
+}
+p {
+  margin: 0 0 1.75em;
+  text-rendering: optimizeLegibility;
+}
+ul {
+  padding-left: 2rem;
+}
+.social-icon i {
+  color: #a0a0a0;
+  font-size: 16px;
+  margin-left: 1em;
+}
+hr {
+  margin-bottom: 30px;
+}
+.most-title {
+  width: calc(100% - 40px);
+}
+.one {
+  border-left: 1px solid #a0a0a0;
+}
+.container {
+  max-width: 1300px;
 }
