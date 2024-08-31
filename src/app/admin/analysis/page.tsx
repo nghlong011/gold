@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
+// import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 interface NewsItem {
@@ -193,7 +193,7 @@ const AdminAnalysisPage = () => {
                 required
               />
             </Form.Group>
-            <Form.Group className="mb-3">
+            {/* <Form.Group className="mb-3">
               <Form.Label>Description</Form.Label>
               <CKEditor
                 editor={ClassicEditor}
@@ -211,7 +211,7 @@ const AdminAnalysisPage = () => {
                   });
                 }}
               />
-            </Form.Group>
+            </Form.Group> */}
             {error && <Alert variant="danger">{error}</Alert>}
             <Button variant="primary" type="submit" disabled={isLoading}>
               {isLoading ? "Submitting..." : "Submit"}
