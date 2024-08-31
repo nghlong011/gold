@@ -29,7 +29,9 @@ export default function ClientLayout({
           </div>
         </>
       )}
-      <Container fluid>{children}</Container>
+      <Container fluid className="p-0">
+        {children}
+      </Container>
       {!isSpecialLayout && <Footer />}
     </>
   );

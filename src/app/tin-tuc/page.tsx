@@ -61,7 +61,11 @@ const NewsPage = () => {
                         </p>
                         <p className="hidden md:block">
                           <span className="line-clamp-2">
-                            {item.description}
+                            <div
+                              dangerouslySetInnerHTML={{
+                                __html: item.description,
+                              }}
+                            />
                           </span>
                         </p>
                       </div>

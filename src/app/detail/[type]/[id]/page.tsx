@@ -59,167 +59,161 @@ const PostDetail = ({
     return items;
   };
   return (
-    <>
-      <Container className="my-5">
-        <Breadcrumb>
-          <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-          <Breadcrumb.Item active>{breadcrumbItems}</Breadcrumb.Item>
-        </Breadcrumb>
-        <Row>
-          <Col>
-            <h1 className="text-3xl font-bold mb-4">
-              {firtsNews?.title || "Default Title"}
-            </h1>
+    <Container className="my-5">
+      <Breadcrumb>
+        <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+        <Breadcrumb.Item active>{breadcrumbItems}</Breadcrumb.Item>
+      </Breadcrumb>
+      <Row>
+        <Col>
+          <h1 className="text-3xl font-bold mb-4">
+            {firtsNews?.title ?? "Default Title"}
+          </h1>
 
-            <div className="flex items-center text-gray-500 mb-4">
-              <Image
-                src="https://secure.gravatar.com/avatar/7a9987c6969aa6051742c46487a14a85?s=80&d=mm&r=g"
-                alt="TuyenTrong"
-                width={40}
-                height={40}
-                className="rounded-full mr-2"
-              />
-              <span className="mr-4">
-                by {firtsNews?.author || "Default Title"}
-              </span>
-              <span> {firtsNews?.time || "Default Title"}</span>
-              <span className="ml-4">Reading Time: 3 mins read</span>
-            </div>
+          <div className="flex items-center text-gray-500 mb-4">
+            <Image
+              src="https://secure.gravatar.com/avatar/7a9987c6969aa6051742c46487a14a85?s=80&d=mm&r=g"
+              alt="TuyenTrong"
+              width={40}
+              height={40}
+              className="rounded-full mr-2"
+            />
+            <span className="mr-4">
+              by {firtsNews?.author ?? "Default Title"}
+            </span>
+            <span> {firtsNews?.time ?? "Default Title"}</span>
+            <span className="ml-4">Reading Time: 3 mins read</span>
+          </div>
 
-            <div className="mb-6">
-              <h2 className="text-xl font-semibold mb-2">RELATED POSTS</h2>
-              <hr />
-              <ul className="list-disc pl-5">
-                <li>
-                  <Link href="/">
-                    Vàng tạo đỉnh cao mới, trước thông tin Fed cắt giảm lãi suất
-                    và căng thẳng địa chính trị
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="/">
-                    Vàng có thể giảm tiếp sau hàng loạt tin tốt từ Hoa Kỳ
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    Giao dịch vàng thế nào trước tin CPI tối nay?
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className="mb-6">
-              <h2 className="text-xl font-semibold mb-2">MỤC LỤC</h2>
-            </div>
-
-            <div className="mb-6">
-              <h2 className="text-4xl font-semibold mb-2">Về cơ bản</h2>
-              <p>{firtsNews?.description || "Default Title"}</p>
-            </div>
-            <div className=" p-3  mb-4 flex items-center border-solid border-2 border-black">
-              <span className="bg-blue-500 text-white rounded-full flex items-center justify-center w-[30px] h-[30px]">
-                <i className="lni lni-telegram-original"></i>
-              </span>
-              <span>Tham gia nhóm tin hiệu Telegram tại đây!</span>
-            </div>
-
+          <div className="mb-6">
             <h2 className="text-xl font-semibold mb-2">RELATED POSTS</h2>
             <hr />
-            <Row xs={1} md={2} lg={3} className="g-4 mb-6">
-              {[1, 2, 3, 4, 5, 6].map((idx) => (
-                <Col key={idx}>
-                  <Card>
-                    <Card.Img
-                      variant="top"
-                      src={
-                        "https://xauusd.vn/wp-content/uploads/2024/08/XAUUSD_2024-08-20_09-00-22_b8cdb-350x250.png"
-                      }
-                    />
-                    <Card.Body>
-                      <Card.Title className="bg-blue-600 text-white p-1 inline-block text-sm">
-                        PHÂN TÍCH XAU/USD
-                      </Card.Title>
-                      <Card.Text className="font-semibold mt-2">
-                        Vàng giảm mạnh, nên chờ sell ở đâu tiếp theo ?
-                      </Card.Text>
-                    </Card.Body>
-                    <Card.Footer className="text-muted">
-                      <small>AUGUST 7, 2024</small>
-                    </Card.Footer>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
-          </Col>
-          <Col xs={12} xl={4}>
-            <h3 className="text-[19px]">
-              <span className="leading-[48px]">Được đề xuất</span>
-            </h3>
-            <hr />
-            <Row className="g-5">
-              {news.slice(0, 3).map((item) => (
-                <Col key={item.id} xs={12} className="d-flex">
-                  <Image
-                    src={item.imageurl}
-                    alt={item.title}
-                    className="img-fluid me-3 w-[100px] md:h-[86px] md:w-[120px]"
+            <ul className="list-disc pl-5">
+              <li>
+                <Link href="/">
+                  Vàng tạo đỉnh cao mới, trước thông tin Fed cắt giảm lãi suất
+                  và căng thẳng địa chính trị
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/">
+                  Vàng có thể giảm tiếp sau hàng loạt tin tốt từ Hoa Kỳ
+                </Link>
+              </li>
+              <li>
+                <Link href="/">
+                  Giao dịch vàng thế nào trước tin CPI tối nay?
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="mb-6">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: firtsNews?.description ?? "Default Title",
+              }}
+            />
+          </div>
+          <div className=" p-3  mb-4 flex items-center border-solid border-2 border-black">
+            <span className="bg-blue-500 text-white rounded-full flex items-center justify-center w-[30px] h-[30px]">
+              <i className="lni lni-telegram-original"></i>
+            </span>
+            <span>Tham gia nhóm tin hiệu Telegram tại đây!</span>
+          </div>
+
+          <h2 className="text-xl font-semibold mb-2">RELATED POSTS</h2>
+          <hr />
+          <Row xs={1} md={2} lg={3} className="g-4 mb-6">
+            {[1, 2, 3, 4, 5, 6].map((idx) => (
+              <Col key={idx}>
+                <Card>
+                  <Card.Img
+                    variant="top"
+                    src={
+                      "https://xauusd.vn/wp-content/uploads/2024/08/XAUUSD_2024-08-20_09-00-22_b8cdb-350x250.png"
+                    }
                   />
-                  <div className="article-content md:w-3/5 ml-3">
-                    <p className="md:font-bold font-[15px] mb-1">
-                      {item.title}
-                    </p>
-                    <p className="flex items-center text-xs text-[#A0A0A0]">
-                      <i className="lni lni-timer"></i>
-                      {item.time}
-                    </p>
-                  </div>
-                </Col>
-              ))}
-            </Row>
-            <h3 className="text-[19px] mt-3">
-              <span className="leading-[48px]">Được Xem Nhiều Nhất</span>
-            </h3>
-            <hr />
-            <div>
-              <Image
-                src={news[0]?.imageurl}
-                alt={news[0]?.title}
-                className="img-fluid my-3 w-full h-[200px] object-cover"
-              />
-              <Row>
-                <Col xs={10}>
-                  <p className="m-0 text-[15px] md:text-xl font-bold">
-                    {news[0]?.title}
+                  <Card.Body>
+                    <Card.Title className="bg-blue-600 text-white p-1 inline-block text-sm">
+                      PHÂN TÍCH XAU/USD
+                    </Card.Title>
+                    <Card.Text className="font-semibold mt-2">
+                      Vàng giảm mạnh, nên chờ sell ở đâu tiếp theo ?
+                    </Card.Text>
+                  </Card.Body>
+                  <Card.Footer className="text-muted">
+                    <small>AUGUST 7, 2024</small>
+                  </Card.Footer>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Col>
+        <Col xs={12} xl={4}>
+          <h3 className="text-[19px]">
+            <span className="leading-[48px]">Được đề xuất</span>
+          </h3>
+          <hr />
+          <Row className="g-5">
+            {news.slice(0, 3).map((item) => (
+              <Col key={item.id} xs={12} className="d-flex">
+                <Image
+                  src={item.imageurl}
+                  alt={item.title}
+                  className="img-fluid me-3 w-[100px] md:h-[86px] md:w-[120px]"
+                />
+                <div className="article-content md:w-3/5 ml-3">
+                  <p className="md:font-bold font-[15px] mb-1">{item.title}</p>
+                  <p className="flex items-center text-xs text-[#A0A0A0]">
+                    <i className="lni lni-timer"></i>
+                    {item.time}
                   </p>
-                </Col>
-                <Col xs={2} className="one flex items-center justify-center">
-                  <span className="text-[#d7d7d7] text-4xl">
-                    <i>0{news[0]?.id}</i>
-                  </span>
-                </Col>
-              </Row>
-            </div>
-            <hr className="mt-3" />
-            <Row className="g-3">
-              {news.slice(1, 5).map((item) => (
-                <Col key={item.id} xs={12} className="flex">
-                  <div className="article-content flex items-center">
-                    <div className="bg-[#eee] rounded-full w-[44px] h-[44px] flex items-center justify-center">
-                      <i>0{item.id}</i>
-                    </div>
-                    <p className="md:font-bold font-[15px] mb-1 most-title ml-3">
-                      {item.title}
-                    </p>
-                  </div>
-                </Col>
-              ))}
+                </div>
+              </Col>
+            ))}
+          </Row>
+          <h3 className="text-[19px] mt-3">
+            <span className="leading-[48px]">Được Xem Nhiều Nhất</span>
+          </h3>
+          <hr />
+          <div>
+            <Image
+              src={news[0]?.imageurl}
+              alt={news[0]?.title}
+              className="img-fluid my-3 w-full h-[200px] object-cover"
+            />
+            <Row>
+              <Col xs={10}>
+                <p className="m-0 text-[15px] md:text-xl font-bold">
+                  {news[0]?.title}
+                </p>
+              </Col>
+              <Col xs={2} className="one flex items-center justify-center">
+                <span className="text-[#d7d7d7] text-4xl">
+                  <i>01</i>
+                </span>
+              </Col>
             </Row>
-          </Col>
-        </Row>
-      </Container>
-    </>
+          </div>
+          <hr className="mt-3" />
+          <Row className="g-3">
+            {news.slice(1, 6).map((item, index) => (
+              <Col key={item.id} xs={12} className="flex">
+                <div className="article-content flex items-center">
+                  <div className="bg-[#eee] rounded-full w-[44px] h-[44px] flex items-center justify-center">
+                    <i>0{index + 2}</i>
+                  </div>
+                  <p className="md:font-bold font-[15px] mb-1 most-title ml-3">
+                    {item.title}
+                  </p>
+                </div>
+              </Col>
+            ))}
+          </Row>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

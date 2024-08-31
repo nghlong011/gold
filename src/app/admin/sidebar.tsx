@@ -14,16 +14,16 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link href="/admin/settings">
+          <Link href="/admin/news">
             <span className="block py-2 px-4 bg-gray-800 hover:bg-gray-700 rounded cursor-pointer">
-              Settings
+              News
             </span>
           </Link>
         </li>
         <li>
-          <Link href="/admin/users">
+          <Link href="/admin/analysis">
             <span className="block py-2 px-4 bg-gray-800 hover:bg-gray-700 rounded cursor-pointer">
-              Users
+              Analysis
             </span>
           </Link>
         </li>

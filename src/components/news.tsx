@@ -2,6 +2,7 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 interface NewsItem {
   id: number;
   title: string;
@@ -22,7 +23,6 @@ const NewsComponent = () => {
           "https://kiemtiencungsammy.click/api/news.php"
         );
         setNews(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error("Error fetching news:", error);
       }
@@ -39,18 +39,22 @@ const NewsComponent = () => {
       <Row className="g-3">
         {news.map((news) => (
           <Col key={news.id} xs={12} md={4} className="d-flex">
-            <Image
-              src={news.imageurl}
-              alt={news.title}
-              className="img-fluid me-3 w-[80px] md:w-[120px]"
-            />
-            <div className="article-content">
-              <p className="text-sm font-bold">{news.title}</p>
-              <p className="flex items-center">
-                <i className="lni lni-timer"></i>
-                {news.time}
-              </p>
-            </div>
+            <Link href={`/detail/news/${news.id}`}>
+              <div className="d-flex">
+                <Image
+                  src={news.imageurl}
+                  alt={news.title}
+                  className="img-fluid me-3 w-[80px] md:w-[120px]"
+                />
+                <div className="article-content">
+                  <p className="text-sm font-bold">{news.title}</p>
+                  <p className="flex items-center">
+                    <i className="lni lni-timer"></i>
+                    {news.time}
+                  </p>
+                </div>
+              </div>
+            </Link>
           </Col>
         ))}
       </Row>

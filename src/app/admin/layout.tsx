@@ -7,9 +7,9 @@ import logo from "@/assets/image/logo.png";
 
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className=" flex flex-col">
       {/* Header */}
-      <header className="bg-gray-800 text-white py-4">
+      <header className="bg-gray-500 text-white py-4">
         <Container fluid>
           <Row className="items-center">
             <Col xs={6} className="flex items-center">
@@ -25,7 +25,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
       {/* Body */}
       <div className="flex flex-1">
         {/* Sidebar */}
-        <aside className="w-64 bg-gray-900 text-white p-4">
+        <aside className="w-64 bg-gray-500 text-white p-4">
           <Sidebar />
         </aside>
 
