@@ -39,16 +39,18 @@ const NewsComponent = () => {
       <Row className="g-3">
         {news.map((news) => (
           <Col key={news.id} xs={12} md={4} className="d-flex">
-            <Link href={`/detail/news/${news.id}`}>
+            <Link href={`/detail/news/${news.id}`} className="no-underline">
               <div className="d-flex">
                 <Image
                   src={news.imageurl}
                   alt={news.title}
-                  className="img-fluid me-3 w-[80px] md:w-[120px]"
+                  className="me-3 w-[80px] md:w-[120px] md:h-[86px]"
                 />
                 <div className="article-content">
-                  <p className="text-sm font-bold">{news.title}</p>
-                  <p className="flex items-center">
+                  <p className="text-sm font-bold line-clamp-2 text-black">
+                    {news.title}
+                  </p>
+                  <p className="flex items-center text-[#A0A0A0]">
                     <i className="lni lni-timer"></i>
                     {news.time}
                   </p>

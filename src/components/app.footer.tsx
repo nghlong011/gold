@@ -29,30 +29,6 @@ const articles = [
       "https://xauusd.vn/wp-content/uploads/2024/08/XAUUSD_2024-08-26_14-37-36_0853e-120x86.png",
     timestamp: "2023-10-03 12:00",
   },
-  {
-    id: 4,
-    title: "Article 4",
-    content: "Content of Article 4",
-    imageUrl:
-      "https://xauusd.vn/wp-content/uploads/2024/08/XAUUSD_2024-08-26_14-37-36_0853e-120x86.png",
-    timestamp: "2023-10-04 13:00",
-  },
-  {
-    id: 5,
-    title: "Article 5",
-    content: "Content of Article 5",
-    imageUrl:
-      "https://xauusd.vn/wp-content/uploads/2024/08/XAUUSD_2024-08-26_14-37-36_0853e-120x86.png",
-    timestamp: "2023-10-05 14:00",
-  },
-  {
-    id: 6,
-    title: "Article 6",
-    content: "Content of Article 6",
-    imageUrl:
-      "https://xauusd.vn/wp-content/uploads/2024/08/XAUUSD_2024-08-26_14-37-36_0853e-120x86.png",
-    timestamp: "2023-10-06 15:00",
-  },
 ];
 const Footer = () => {
   return (
@@ -113,7 +89,7 @@ const Footer = () => {
                     <span>Danh Mục</span>
                   </h3>
                 </div>
-                <ul className="pl-0 pt-3 grid grid-cols-2">
+                <ul className="pl-0 pt-3 grid grid-cols-2 gap-2">
                   <li className="py-2">
                     <Link href="/">Kiến Thức XAUUSD</Link>
                   </li>
@@ -141,7 +117,7 @@ const Footer = () => {
         </div>
         <p className="copyright m-0 text-xs">
           © 2021
-          <Link href="https://xauusd.vn" title="XAUUSD">
+          <Link href="https://xauusd.vn" title="XAUUSD" className="px-1">
             XAUUSD.VN
           </Link>
           - Chuyên trang phân tích giá vàng online{" "}

@@ -44,11 +44,13 @@ const ArticleComponent = () => {
                 <Image
                   src={news.imageurl}
                   alt={news.title}
-                  className="img-fluid me-3 w-[80px] md:w-[120px]"
+                  className="me-3 w-[80px] md:w-[120px] md:h-[86px]"
                 />
-                <div className="article-content">
-                  <p className="text-sm font-bold">{news.title}</p>
-                  <p className="flex items-center">
+                <div className="article-content ">
+                  <p className="text-sm font-bold text-black line-clamp-2">
+                    {news.title}
+                  </p>
+                  <p className="flex items-center text-[#A0A0A0]">
                     <i className="lni lni-timer"></i>
                     {news.time}
                   </p>

@@ -116,3 +116,10 @@ ol {
   margin: revert;
   padding: revert;
 }
+img {
+  object-fit: cover;
+}
+a {
+  text-decoration: none !important;
+  color: black !important;
+}
