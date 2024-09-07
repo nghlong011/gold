@@ -1,18 +1,45 @@
 // app/login/page.tsx
 "use client";
 
+import axios from "axios";
 import { FormEvent, useState } from "react";
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { login } from "../../store/authSlice";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Logic đăng nhập
-    console.log("Email:", email);
-    console.log("Password:", password);
+    const data = {
+      action: "login",
+      username: email,
+      password: password,
+    };
+    console.log("Data:", data);
+    try {
+      const response = await axios.post(
+        "https://kiemtiencungsammy.click/api/auth.php",
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log("Response:", response.data.status);
+      if (response.data.status) {
+        dispatch(login());
+        router.push("/admin");
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+      alert("Đăng nhập thất bại");
+    }
   };
 
   return (
@@ -29,7 +56,7 @@ export default function LoginPage() {
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
                   <Form.Control
-                    type="email"
+                    type="text"
                     placeholder="Enter email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
