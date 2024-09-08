@@ -1,7 +1,7 @@
 "use client";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "@/app/globals.css";
 import ClientLayout from "./ClientLayout"; // Import Client Layout
 import { Provider } from "react-redux";
 import store from "../store/store";

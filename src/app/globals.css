@@ -20,6 +20,13 @@ body {
   color: rgb(var(--foreground-rgb));
 }
 
+@layer base {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -118,8 +125,4 @@ ol {
 }
 img {
   object-fit: cover;
-}
-a {
-  text-decoration: none !important;
-  color: black !important;
 }

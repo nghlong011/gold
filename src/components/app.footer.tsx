@@ -76,7 +76,9 @@ const Footer = () => {
                 <ul className="pl-0 pt-3">
                   {articles.slice(0, 3).map((article) => (
                     <li key={article.id} className="py-2">
-                      <Link href="/">{article.title}</Link>
+                      <Link href={`/bai-viet/${article.id}`}>
+                        {article.title}
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -91,13 +93,19 @@ const Footer = () => {
                 </div>
                 <ul className="pl-0 pt-3 grid grid-cols-2 gap-2">
                   <li className="py-2">
-                    <Link href="/">Kiến Thức XAUUSD</Link>
+                    <Link href="/kien-thuc" className="hover:text-primary">
+                      Kiến Thức XAUUSD
+                    </Link>
                   </li>
                   <li className="py-2">
-                    <Link href="/">Phân Tích XAU/USD</Link>
+                    <Link href="/phan-tich" className="hover:text-primary">
+                      Phân Tích XAU/USD
+                    </Link>
                   </li>
                   <li className="py-2">
-                    <Link href="/">Tin Tức XAUUSD</Link>
+                    <Link href="/tin-tuc" className="hover:text-primary">
+                      Tin Tức XAUUSD
+                    </Link>
                   </li>
                 </ul>
               </div>
