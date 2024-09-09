@@ -1,5 +1,5 @@
 "use client";
-import { Container, Table, Button, Image } from "react-bootstrap";
+import { Container, Table, Button, Image, Modal } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
@@ -24,6 +24,8 @@ const AdminAnalysisPage = () => {
   const [newNews, setNewNews] = useState<Partial<NewsItem>>({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [deleteId, setDeleteId] = useState<number | null>(null);
 
   const fetchNews = async () => {
     try {
@@ -50,8 +52,23 @@ const AdminAnalysisPage = () => {
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setNewNews((prev) => ({ ...prev, [name]: value }));
+    const { name, value, files } = e.target;
+    if (name === "image" && files && files[0]) {
+      const file = files[0];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setNewNews((prevNews) => ({
+          ...prevNews,
+          imageurl: reader.result as string,
+        }));
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setNewNews((prevNews) => ({
+        ...prevNews,
+        [name]: value,
+      }));
+    }
   };
 
   const handleDescriptionChange = (_event: any, editor: ClassicEditor) => {
@@ -68,11 +85,33 @@ const AdminAnalysisPage = () => {
     setIsLoading(true);
     setError(null);
     try {
+      // Upload the image file if it exists
+      let imageUrl = newNews.imageurl ?? "";
+      if (newNews.imageurl && newNews.imageurl.startsWith("data:")) {
+        const formData = new FormData();
+        const blob = await fetch(newNews.imageurl).then((res) => res.blob());
+        formData.append("upload", blob, "image.png");
+        const uploadResponse = await axios.post(
+          "https://kiemtiencungsammy.click/api/upload.php",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        if (uploadResponse.data && uploadResponse.data.url) {
+          imageUrl = uploadResponse.data.url;
+        } else {
+          throw new Error("Failed to upload image");
+        }
+      }
+
       // Prepare the data to be sent
       const data = {
         title: newNews.title ?? "",
         author: newNews.author ?? "",
-        imageurl: newNews.imageurl ?? "",
+        imageurl: imageUrl,
         description: newNews.description ?? "",
         time: new Date().toISOString(),
       };
@@ -109,11 +148,43 @@ const AdminAnalysisPage = () => {
     }
   };
 
+  const handleDelete = async () => {
+    if (deleteId === null) return;
+
+    try {
+      const response = await axios.delete(
+        `https://kiemtiencungsammy.click/api/analysis.php`,
+        {
+          data: { id: deleteId },
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.data.message) {
+        console.log("News item deleted successfully:", response.data);
+        fetchNews();
+      } else {
+        console.error("Failed to delete news item:", response.data.message);
+      }
+    } catch (error) {
+      console.error("Error deleting news item:", error);
+    } finally {
+      setShowConfirmModal(false);
+      setDeleteId(null);
+    }
+  };
+
+  const confirmDelete = (id: number) => {
+    setDeleteId(id);
+    setShowConfirmModal(true);
+  };
+
   return (
     <Container className="mt-4">
-      <h2 className="mb-3">Admin News Management</h2>
+      <h2 className="mb-3">Admin Analysis Management</h2>
       <Button variant="primary" className="mb-3" onClick={handleAdd}>
-        Add News
+        Add Analysis
       </Button>
       <Table striped bordered hover responsive>
         <thead>
@@ -144,7 +215,11 @@ const AdminAnalysisPage = () => {
                 <Button variant="info" size="sm" className="me-2">
                   Edit
                 </Button>
-                <Button variant="danger" size="sm">
+                <Button
+                  variant="danger"
+                  size="sm"
+                  onClick={() => confirmDelete(item.id)}
+                >
                   Delete
                 </Button>
               </td>
@@ -163,6 +238,24 @@ const AdminAnalysisPage = () => {
         isLoading={isLoading}
         error={error}
       />
+
+      <Modal show={showConfirmModal} onHide={() => setShowConfirmModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Delete</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to delete this item?</Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="secondary"
+            onClick={() => setShowConfirmModal(false)}
+          >
+            Cancel
+          </Button>
+          <Button variant="danger" onClick={handleDelete}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 };

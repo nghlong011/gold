@@ -31,7 +31,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
           <Row className="items-center">
             <Col
               xs={6}
-              className="flex items-center"
+              className="flex items-center cursor-pointer"
               onClick={() => router.push("/")}
             >
               <Image src={logo.src} alt="logo" width={150} height={50} />

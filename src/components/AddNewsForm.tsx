@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Form, Button, Modal, Alert } from "react-bootstrap";
+import { Form, Button, Modal, Alert, Image } from "react-bootstrap";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
@@ -47,7 +47,7 @@ const AddNewsForm: React.FC<AddNewsFormProps> = ({
   return (
     <Modal show={showModal} onHide={handleClose} size="lg">
       <Modal.Header closeButton>
-        <Modal.Title>Add New News</Modal.Title>
+        <Modal.Title>Add New</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
@@ -72,14 +72,21 @@ const AddNewsForm: React.FC<AddNewsFormProps> = ({
             />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>Image URL</Form.Label>
+            <Form.Label>Image</Form.Label>
             <Form.Control
-              type="text"
-              name="imageurl"
-              value={newNews.imageurl ?? ""}
+              type="file"
+              name="image"
               onChange={handleInputChange}
               required
             />
+            {newNews.imageurl && (
+              <Image
+                src={newNews.imageurl}
+                alt="Preview"
+                thumbnail
+                className="mt-3"
+              />
+            )}
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Description</Form.Label>

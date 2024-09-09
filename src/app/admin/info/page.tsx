@@ -19,7 +19,7 @@ interface NewsItem {
   author: string;
 }
 
-const AdminNewsPage = () => {
+const AdminInfoPage = () => {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [showModal, setShowModal] = useState(false);
   const [newNews, setNewNews] = useState<Partial<NewsItem>>({});
@@ -31,7 +31,7 @@ const AdminNewsPage = () => {
   const fetchNews = async () => {
     try {
       const response = await axios.get<NewsItem[]>(
-        "https://kiemtiencungsammy.click/api/news.php"
+        "https://kiemtiencungsammy.click/api/info.php"
       );
       setNews(response.data);
     } catch (error) {
@@ -122,7 +122,7 @@ const AdminNewsPage = () => {
 
       // Make the POST request
       const response = await axios.post(
-        "https://kiemtiencungsammy.click/api/news.php",
+        "https://kiemtiencungsammy.click/api/info.php",
         data,
         {
           headers: {
@@ -154,7 +154,7 @@ const AdminNewsPage = () => {
 
     try {
       const response = await axios.delete(
-        `https://kiemtiencungsammy.click/api/news.php`,
+        `https://kiemtiencungsammy.click/api/info.php`,
         {
           data: { id: deleteId },
           headers: {
@@ -183,9 +183,9 @@ const AdminNewsPage = () => {
 
   return (
     <Container className="mt-4">
-      <h2 className="mb-3">Admin News Management</h2>
+      <h2 className="mb-3">Admin Info Management</h2>
       <Button variant="primary" className="mb-3" onClick={handleAdd}>
-        Add News
+        Add Info
       </Button>
       <Table striped bordered hover responsive>
         <thead>
@@ -261,4 +261,4 @@ const AdminNewsPage = () => {
   );
 };
 
-export default AdminNewsPage;
+export default AdminInfoPage;

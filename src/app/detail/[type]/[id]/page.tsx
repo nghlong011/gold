@@ -63,7 +63,11 @@ const PostDetail = ({
     }
     return items;
   };
-
+  console.log(id);
+  // Filter out the current post from the news array
+  const filteredNews = news.filter((item) => {
+    return String(item.id) !== String(id);
+  });
   return (
     <Container className="my-5">
       <Breadcrumb>
@@ -95,23 +99,11 @@ const PostDetail = ({
             <h2 className="text-xl font-semibold mb-2">RELATED POSTS</h2>
             <hr />
             <ul className="list-disc pl-5">
-              <li>
-                <Link href="/">
-                  Vàng tạo đỉnh cao mới, trước thông tin Fed cắt giảm lãi suất
-                  và căng thẳng địa chính trị
-                </Link>
-              </li>
-
-              <li>
-                <Link href="/">
-                  Vàng có thể giảm tiếp sau hàng loạt tin tốt từ Hoa Kỳ
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  Giao dịch vàng thế nào trước tin CPI tối nay?
-                </Link>
-              </li>
+              {filteredNews.slice(0, 3).map((item) => (
+                <li key={item.id}>
+                  <Link href={`/detail/${type}/${item.id}`}>{item.title}</Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="mb-6">
@@ -143,7 +135,7 @@ const PostDetail = ({
           <h2 className="text-xl font-semibold mb-2">RELATED POSTS</h2>
           <hr />
           <Row xs={1} md={2} lg={3} className="g-4 mb-6">
-            {news.map((item) => (
+            {filteredNews.slice(0, 6).map((item) => (
               <Col key={item.id}>
                 <Link href={`/detail/${type}/${item.id}`}>
                   <Card>
@@ -173,7 +165,7 @@ const PostDetail = ({
           </h3>
           <hr />
           <Row className="g-5">
-            {news.slice(0, 3).map((item) => (
+            {filteredNews.slice(0, 3).map((item) => (
               <Col key={item.id} xs={12} className="d-flex">
                 <Link href={`/detail/${type}/${item.id}`}>
                   <div className="d-flex">
@@ -223,7 +215,7 @@ const PostDetail = ({
           </div>
           <hr className="mt-3" />
           <Row className="g-3">
-            {news.slice(1, 6).map((item, index) => (
+            {news.slice(1, 5).map((item, index) => (
               <Col key={item.id} xs={12} className="flex">
                 <Link href={`/detail/${type}/${item.id}`}>
                   <div className="article-content flex items-center">

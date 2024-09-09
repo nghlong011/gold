@@ -118,18 +118,18 @@ const NewsPage = () => {
                 </Col>
                 <Col xs={2} className="one flex items-center justify-center">
                   <span className="text-[#d7d7d7] text-4xl">
-                    <i>0{news[0]?.id}</i>
+                    <i>01</i>
                   </span>
                 </Col>
               </Row>
             </div>
             <hr className="mt-3" />
             <Row className="g-3">
-              {news.slice(1, 5).map((item) => (
+              {news.slice(1, 5).map((item, index) => (
                 <Col key={item.id} xs={12} className="flex">
                   <div className="article-content flex items-center">
                     <div className="bg-[#eee] rounded-full w-[44px] h-[44px] flex items-center justify-center">
-                      <i>0{item.id}</i>
+                      <i>0{index + 2}</i>
                     </div>
                     <p className="md:font-bold font-[15px] mb-1 most-title ml-3">
                       {item.title}

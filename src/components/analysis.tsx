@@ -37,7 +37,7 @@ const ArticleComponent = () => {
       </h3>
       <hr />
       <Row className="g-3">
-        {news.map((news) => (
+        {news.slice(0, 6).map((news) => (
           <Col key={news.id} xs={12} md={4} className="d-flex">
             <Link href={`/detail/analysis/${news.id}`}>
               <div className="d-flex">
