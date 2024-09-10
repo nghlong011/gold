@@ -49,7 +49,7 @@ function TradingViewWidget() {
           rel="noopener nofollow"
           target="_blank"
         >
-          <span className="blue-text">XAUUSD Chart by TradingView</span>
+          <span className="text-black">Nguồn: TradingView</span>
         </a>
       </div>
     </div>

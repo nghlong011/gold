@@ -33,10 +33,12 @@ export default function Home() {
               alt="Hot Icon"
               width={40} // Specify width
             />
-            <div className="overflow-hidden relative text-marquee font-bold">
-              Tham gia nhóm{" "}
-              <span className="text-red-500 px-1">“VIP GOLD Scalping”</span>
-              <span className="text-primary">tại đây!</span>
+            <div className="overflow-hidden relative font-bold flex items-center">
+              <div className="text-sm md:text-base">
+                Tham gia nhóm{" "}
+                <span className="text-red-500 px-1">“VIP GOLD Scalping”</span>
+                <span className="text-primary">tại đây!</span>
+              </div>
             </div>
           </div>
           <div className="h-[550px] md:h-[575px] w-full mt-4 text-lg">

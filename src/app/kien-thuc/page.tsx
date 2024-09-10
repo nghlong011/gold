@@ -4,6 +4,7 @@ import Breadcrumb from "@/components/breadcrumbs";
 import { Col, Container, Row, Image } from "react-bootstrap";
 import axios from "axios";
 import Link from "next/link";
+import { format } from "date-fns";
 interface NewsItem {
   id: number;
   title: string;
@@ -57,7 +58,7 @@ const InfoPage = () => {
                         <p className="flex items-center text-xs text-[#A0A0A0]">
                           BY {item.author}
                           <i className="lni lni-timer pl-2"></i>
-                          {item.time}
+                          {format(new Date(item.time), "MMMM dd, yyyy")}
                         </p>
                         <p className="hidden md:block">
                           <span className="line-clamp-2">
@@ -94,7 +95,7 @@ const InfoPage = () => {
                     </p>
                     <p className="flex items-center text-xs text-[#A0A0A0]">
                       <i className="lni lni-timer"></i>
-                      {item.time}
+                      {format(new Date(item.time), "MMMM dd, yyyy")}
                     </p>
                   </div>
                 </Col>

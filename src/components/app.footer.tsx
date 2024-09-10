@@ -119,8 +119,8 @@ const Footer = () => {
       <Container className="px-0 py-4">
         <div className="footer_right">
           <div className="social-icon">
-            <i className="lni lni-facebook-fill mr-2 text-[#a0a0a0]"></i>
-            <i className="lni lni-twitter-original"></i>
+            <i className="lni lni-facebook-fill mr-2 text-[#a0a0a0] cursor-pointer"></i>
+            <i className="lni lni-twitter-original cursor-pointer"></i>
           </div>
         </div>
         <p className="copyright m-0 text-xs">

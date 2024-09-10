@@ -3,6 +3,7 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
+import { format } from "date-fns";
 interface NewsItem {
   id: number;
   title: string;
@@ -50,9 +51,9 @@ const ArticleComponent = () => {
                   <p className="text-sm font-bold text-black line-clamp-2">
                     {news.title}
                   </p>
-                  <p className="flex items-center text-[#A0A0A0]">
-                    <i className="lni lni-timer"></i>
-                    {news.time}
+                  <p className="flex items-center text-[#A0A0A0] text-sm">
+                    <i className="lni lni-timer mr-1"></i>
+                    {format(new Date(news.time), "MMMM dd, yyyy")}
                   </p>
                 </div>
               </div>

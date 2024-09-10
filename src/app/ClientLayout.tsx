@@ -21,7 +21,7 @@ export default function ClientLayout({
     <>
       {!isSpecialLayout && (
         <>
-          <div className="w-full bg-[#f7f7f7] sticky top-0 z-[9999]">
+          <div className="w-full bg-[#f7f7f7]">
             <Header />
           </div>
           <div className="w-full shadow-md mb-4 hidden xl:block xl:sticky xl:top-0 z-[9999] bg-white">
@@ -29,7 +29,7 @@ export default function ClientLayout({
           </div>
         </>
       )}
-      <Container fluid className="p-0">
+      <Container fluid className="">
         {children}
       </Container>
       {!isSpecialLayout && <Footer />}

@@ -1,7 +1,6 @@
 "use client";
 import { Image, Nav, Container, Row, Col } from "react-bootstrap";
 import logo from "@/assets/image/logo.png";
-import logo1 from "@/assets/image/logo-mb.png";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
@@ -36,9 +35,13 @@ const Header = () => {
   return (
     <>
       <Container className="hidden xl:block">
-        <Row className="h-[60px] items-center">
-          <Col xs={2} md={3}>
-            <Image src={logo.src} alt="logo" className="w-[200px]" />
+        <Row className="h-[90px] items-center">
+          <Col xs={2} md={3} className="h-full">
+            <Image
+              src={logo.src}
+              alt="logo"
+              className="w-[100px] h-full cursor-pointer"
+            />
           </Col>
           <Col xs={8} md={6} className="flex justify-center">
             <div className="relative h-full flex items-center w-full">
@@ -66,15 +69,15 @@ const Header = () => {
           </Col>
           <Col xs={2} md={3} className="flex justify-end hidden md:flex">
             <div className="social-icon">
-              <i className="lni lni-facebook-fill mr-2"></i>
-              <i className="lni lni-twitter-original"></i>
+              <i className="lni lni-facebook-fill mr-2 cursor-pointer"></i>
+              <i className="lni lni-twitter-original cursor-pointer"></i>
             </div>
           </Col>
         </Row>
       </Container>
       <Container fluid className="xl:hidden p-0">
         <div className="bg-[#000000] w-full menu-mobile overflow-hidden">
-          <Row className="h-[60px] items-center">
+          <Row className="h-[90px] items-center">
             <Col xs={2} md={3} className="flex items-center justify-center">
               <button onClick={toggleMobileMenu} className="xl:hidden">
                 <svg
@@ -94,7 +97,11 @@ const Header = () => {
               </button>
             </Col>
             <Col xs={8} md={6} className="flex justify-center">
-              <Image src={logo1.src} alt="logo" className="w-[200px] mx-auto" />
+              <Image
+                src={logo.src}
+                alt="logo"
+                className="w-[100px] mx-auto h-[90px] cursor-pointer"
+              />
             </Col>
             <Col xs={2} md={3} className="flex">
               <svg
