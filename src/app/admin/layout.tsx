@@ -3,7 +3,7 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Sidebar from "./sidebar";
 import Image from "next/image";
-import logo from "@/assets/image/logo.png";
+import logo from "@/assets/Simple Trading logo/Simple Trading logo final-01.png";
 import { RootState } from "@/store/store";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";

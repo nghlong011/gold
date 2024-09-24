@@ -1,6 +1,7 @@
 "use client";
 import { Image, Nav, Container, Row, Col } from "react-bootstrap";
-import logo from "@/assets/image/logo.png";
+import logo from "@/assets/Simple Trading logo/Simple Trading logo final-01.png";
+import logo1 from "@/assets/Simple Trading logo/Simple Trading logo final-03.png";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
@@ -40,7 +41,7 @@ const Header = () => {
             <Image
               src={logo.src}
               alt="logo"
-              className="w-[100px] h-full cursor-pointer"
+              className=" h-full cursor-pointer"
             />
           </Col>
           <Col xs={8} md={6} className="flex justify-center">
@@ -76,7 +77,7 @@ const Header = () => {
         </Row>
       </Container>
       <Container fluid className="xl:hidden p-0">
-        <div className="bg-[#000000] w-full menu-mobile overflow-hidden">
+        <div className="bg-[#231F20] w-full overflow-hidden relative">
           <Row className="h-[90px] items-center">
             <Col xs={2} md={3} className="flex items-center justify-center">
               <button onClick={toggleMobileMenu} className="xl:hidden">
@@ -97,11 +98,13 @@ const Header = () => {
               </button>
             </Col>
             <Col xs={8} md={6} className="flex justify-center">
-              <Image
-                src={logo.src}
-                alt="logo"
-                className="w-[100px] mx-auto h-[90px] cursor-pointer"
-              />
+              <Link href="/">
+                <Image
+                  src={logo1.src}
+                  alt="logo"
+                  className=" mx-auto h-[90px] cursor-pointer"
+                />
+              </Link>
             </Col>
             <Col xs={2} md={3} className="flex">
               <svg
@@ -120,35 +123,38 @@ const Header = () => {
               </svg>
             </Col>
           </Row>
-          {isMobileMenuOpen && (
-            <Row className="xl:hidden">
-              <Col>
-                <Nav
-                  ref={menuRef}
-                  className="flex flex-col bg-white p-4 fixed top-0 left-0 h-full w-3/4 shadow-lg z-50 transition-transform duration-300"
-                >
-                  <div className="relative flex items-center w-full">
-                    <input
-                      placeholder="Search..."
-                      className="input shadow-sm focus:border-2 border-gray-300 px-3 py-2 rounded-full transition-all outline-none w-full"
-                      name="search"
-                      type="search"
-                    />
-                    <svg
-                      className="w-6 h-6 absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-                        strokeLinejoin="round"
-                        strokeLinecap="round"
-                      ></path>
-                    </svg>
-                  </div>
+          <Row className="xl:hidden">
+            <Col>
+              <div
+                ref={menuRef}
+                className={`flex flex-col bg-white pt-4 fixed top-0 left-0 h-full w-3/4 z-50 transition-transform duration-300 ${
+                  isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+                }`}
+              >
+                <div className="relative flex px-4 items-center w-full h-[60px]">
+                  <input
+                    placeholder="Search..."
+                    className="input shadow-sm focus:border-2 border-gray-300 px-3 py-2 rounded-full transition-all w-full"
+                    name="search"
+                    type="search"
+                  />
+                  <svg
+                    className="w-6 h-6 absolute right-8 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                      strokeLinejoin="round"
+                      strokeLinecap="round"
+                    ></path>
+                  </svg>
+                </div>
+                <hr className="mt-2" />
+                <Nav className="grid gap-4 px-4">
                   <Link href="/" className="link" onClick={closeMobileMenu}>
                     Home
                   </Link>
@@ -174,9 +180,15 @@ const Header = () => {
                     Kiến Thức XAUUSD
                   </Link>
                 </Nav>
-              </Col>
-            </Row>
-          )}
+              </div>
+              {isMobileMenuOpen && (
+                <div
+                  className="fixed inset-0 bg-black opacity-70 z-40"
+                  onClick={closeMobileMenu}
+                ></div>
+              )}
+            </Col>
+          </Row>
         </div>
       </Container>
     </>

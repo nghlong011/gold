@@ -1,5 +1,5 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
-import logo from "@/assets/image/logo.png";
+import logo from "@/assets/Simple Trading logo/Simple Trading logo final-01.png";
 import MiniTradingViewWidget from "@/components/minitradingView";
 import Link from "next/link";
 
@@ -41,8 +41,8 @@ const Footer = () => {
                 className="footer_widget widget_jnews_about"
                 id="jnews_about-1"
               >
-                <h3 className="text-base font-bold">
-                  <span>XAUUSD.VN</span>
+                <h3 className="text-base font-bold uppercase">
+                  <span>thesimpletrading.com</span>
                 </h3>
 
                 <Image
@@ -56,9 +56,9 @@ const Footer = () => {
                     href="https://xauusd.vn/"
                   ></Link>
                   <p>
-                    XAUUSD là trang web cập nhật biểu đồ giá vàng online. Chia
-                    sẽ các phân tích nhận định về giá vàng bằng tin tức phân
-                    tích cơ bản và phân tích kỹ thuật.
+                    THESIMPLETRADING là trang web cập nhật biểu đồ giá vàng
+                    online. Chia sẽ các phân tích nhận định về giá vàng bằng tin
+                    tức phân tích cơ bản và phân tích kỹ thuật.
                   </p>
                 </div>
               </div>
@@ -125,8 +125,12 @@ const Footer = () => {
         </div>
         <p className="copyright m-0 text-xs">
           © 2021
-          <Link href="https://xauusd.vn" title="XAUUSD" className="px-1">
-            XAUUSD.VN
+          <Link
+            href="https://thesimpletrading.com/"
+            title="thesimpletrading"
+            className="px-1"
+          >
+            THESIMPLETRADING.COM
           </Link>
           - Chuyên trang phân tích giá vàng online{" "}
         </p>

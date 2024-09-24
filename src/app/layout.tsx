@@ -5,7 +5,7 @@ import "@/app/globals.css";
 import ClientLayout from "./ClientLayout"; // Import Client Layout
 import { Provider } from "react-redux";
 import store from "../store/store";
-
+import logo from "@/assets/Simple Trading logo/Simple Trading logo final-01.png";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
           href="https://cdn.lineicons.com/4.0/lineicons.css"
           rel="stylesheet"
         />
-        <link rel="icon" href="/vercel.svg" sizes="any" />
+        <link rel="icon" href={logo.src} sizes="any" />
       </head>
       <body className={inter.className}>
         <Provider store={store}>
