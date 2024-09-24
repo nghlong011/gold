@@ -1,7 +1,7 @@
 "use client";
 import { Container, Image } from "react-bootstrap";
 import TradingViewWidget from "@/components/tradingView";
-import Gift from "@/assets/image/gif-icon-hot.gif";
+import Gift from "@/assets/image/bells.gif";
 import ArticleComponent from "@/components/analysis";
 import NewsComponent from "@/components/news";
 import Information from "@/components/infor";
@@ -34,9 +34,9 @@ export default function Home() {
               width={40} // Specify width
             />
             <div className="overflow-hidden relative font-bold flex items-center">
-              <div className="text-sm md:text-base">
-                Tham gia nhóm{" "}
-                <span className="text-red-500 px-1">“VIP GOLD Scalping”</span>
+              <div className="text-base md:text-base">
+                Tham gia cộng đồng{" "}
+                <span className="text-red-500 px-1">“Đầu tư vàng”</span>
                 <span className="text-primary">tại đây!</span>
               </div>
             </div>
