@@ -41,7 +41,7 @@ const AnalsisPage = () => {
       <Container className="my-4">
         <Row>
           <Col xs={12} xl={7}>
-            <Row className="g-5">
+            <Row className="gy-5">
               {news.map((item) => (
                 <Col key={item.id} xs={12} className="d-flex">
                   <Link href={`/detail/analysis/${item.id}`}>
@@ -81,7 +81,7 @@ const AnalsisPage = () => {
               <span className="leading-[48px]">Được đề xuất</span>
             </h3>
             <hr />
-            <Row className="g-5">
+            <Row className="gy-5">
               {news.slice(0, 3).map((item) => (
                 <Col key={item.id} xs={12} className="d-flex">
                   <Image

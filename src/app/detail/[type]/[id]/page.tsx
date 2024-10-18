@@ -164,7 +164,7 @@ const PostDetail = ({
             <span className="leading-[48px]">Được đề xuất</span>
           </h3>
           <hr />
-          <Row className="g-5">
+          <Row className="gy-5">
             {filteredNews.slice(0, 3).map((item) => (
               <Col key={item.id} xs={12} className="d-flex">
                 <Link href={`/detail/${type}/${item.id}`}>
