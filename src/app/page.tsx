@@ -8,7 +8,7 @@ import Information from "@/components/infor";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center text-black">
       <Container>
         <div className="relative w-full">
           <div className="flex w-full cursor-pointer">
@@ -34,7 +34,7 @@ export default function Home() {
               width={40} // Specify width
             />
             <div className="overflow-hidden relative font-bold flex items-center">
-              <div className="text-base md:text-base">
+              <div className="text-base text-black">
                 Tham gia cộng đồng{" "}
                 <span className="text-red-500 px-1">“Đầu tư vàng”</span>
                 <span className="text-primary">tại đây!</span>

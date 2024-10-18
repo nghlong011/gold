@@ -55,7 +55,7 @@ const Footer = () => {
                     className="footer_logo"
                     href="https://xauusd.vn/"
                   ></Link>
-                  <p>
+                  <p className="text-black">
                     THESIMPLETRADING là trang web cập nhật biểu đồ giá vàng
                     online. Chia sẽ các phân tích nhận định về giá vàng bằng tin
                     tức phân tích cơ bản và phân tích kỹ thuật.
@@ -69,7 +69,7 @@ const Footer = () => {
                 id="recent-posts-3"
               >
                 <div className="jeg_footer_heading jeg_footer_heading_1">
-                  <h3 className="font-bold">
+                  <h3 className="font-bold text-black">
                     <span>Bài Viết Mới</span>
                   </h3>
                 </div>
@@ -85,7 +85,7 @@ const Footer = () => {
               </div>
             </Col>
             <Col xs={12} md={3}>
-              <div className="font-bold" id="recent-posts-3">
+              <div className="font-bold text-black" id="recent-posts-3">
                 <div className="jeg_footer_heading jeg_footer_heading_1">
                   <h3 className="font-bold">
                     <span>Danh Mục</span>
