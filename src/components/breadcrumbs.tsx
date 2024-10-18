@@ -8,7 +8,10 @@ const Breadcrumb = ({ items }: BreadcrumbProps) => {
   const breadcrumbItems = ["Home", ...items];
 
   return (
-    <Container fluid className="breadcrumb-container bg-[#f7f7f7] py-3">
+    <Container
+      fluid
+      className="breadcrumb-container bg-[#f7f7f7] py-3 text-black"
+    >
       <Container>
         <div className="breadcrumb text-xs">
           {breadcrumbItems.map((item, index) => (
