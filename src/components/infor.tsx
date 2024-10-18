@@ -6,7 +6,7 @@ const Information = () => {
         <span className="leading-[48px]">BẢNG THÔNG TIN VỀ VÀNG</span>{" "}
       </h3>
       <hr />
-      <Row>
+      <Row className="w-full">
         <Col xs={12} md={6}>
           <div className="mb-[30px]">
             <div className="wpb_wrapper">
